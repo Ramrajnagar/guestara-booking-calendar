@@ -1,15 +1,8 @@
 import React, { useMemo } from 'react';
-import type { Booking } from '../types';
 import { differenceInDays, parseISO } from 'date-fns';
 import { TrendingUp, Users, Home, Clock } from 'lucide-react';
 
-interface StatsDashboardProps {
-  bookings: Booking[];
-  totalDaysInRange: number;
-  totalRooms?: number;
-}
-
-export const StatsDashboard: React.FC<StatsDashboardProps> = ({ 
+export const StatsDashboard = ({ 
   bookings, 
   totalDaysInRange,
   totalRooms = 10 
@@ -22,15 +15,10 @@ export const StatsDashboard: React.FC<StatsDashboardProps> = ({
       return sum + differenceInDays(parseISO(b.checkOut), parseISO(b.checkIn));
     }, 0) / bookings.length;
 
-    // Occupancy Rate: (Sum of nights occupied) / (Total rooms * days in range)
-    // For simplicity, we'll calculate it based on the number of unique bookings in the selected range
-    // versus total capacity.
     const totalCapacity = totalRooms * (totalDaysInRange || 1);
-    // Actually, totalDaysInRange is days in range, but we need "nights" for occupancy.
-    // If user selected 1 day, it's 1 night.
     const occupancyRate = (bookings.length / totalCapacity) * 100;
 
-    const roomTypeCounts: Record<string, number> = {};
+    const roomTypeCounts = {};
     bookings.forEach(b => {
       roomTypeCounts[b.roomType] = (roomTypeCounts[b.roomType] || 0) + 1;
     });

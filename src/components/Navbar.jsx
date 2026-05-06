@@ -1,18 +1,8 @@
 import React from 'react';
 import { format, addMonths, subMonths } from 'date-fns';
 import { ChevronLeft, ChevronRight, Filter } from 'lucide-react';
-import type { FilterState } from '../types';
 
-interface NavbarProps {
-  currentMonth: Date;
-  onMonthChange: (date: Date) => void;
-  filters: FilterState;
-  onFilterChange: (filters: FilterState) => void;
-  roomTypes: string[];
-  sources: string[];
-}
-
-export const Navbar: React.FC<NavbarProps> = ({
+export const Navbar = ({
   currentMonth,
   onMonthChange,
   filters,
@@ -24,7 +14,7 @@ export const Navbar: React.FC<NavbarProps> = ({
   const handleNextMonth = () => onMonthChange(addMonths(currentMonth, 1));
   const handleToday = () => onMonthChange(new Date());
 
-  const handleFilterChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+  const handleFilterChange = (e) => {
     const { name, value } = e.target;
     onFilterChange({ ...filters, [name]: value });
   };

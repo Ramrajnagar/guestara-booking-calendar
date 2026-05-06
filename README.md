@@ -1,73 +1,41 @@
-# React + TypeScript + Vite
+# Guestara Booking Calendar Heatmap
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A high-performance, single-page React application that visualizes hotel occupancy through an interactive heatmap calendar. Built for the Guestara Frontend Intern Assignment.
 
-Currently, two official plugins are available:
+## 🚀 Getting Started
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+1.  **Install Dependencies**:
+    ```bash
+    npm install
+    ```
 
-## React Compiler
+2.  **Run Development Server**:
+    ```bash
+    npm run dev
+    ```
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+3.  **Build for Production**:
+    ```bash
+    npm run build
+    ```
 
-## Expanding the ESLint configuration
+## 🛠️ Tech Stack
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **React**: Foundation for the UI.
+- **Vite**: Ultra-fast build tool.
+- **date-fns**: Lightweight library for date arithmetic (permissible per brief).
+- **Lucide React**: For clean, modern iconography.
+- **Vanilla CSS**: Custom design system with a focus on premium aesthetics.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## 📋 Core Features
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+- **Occupancy Heatmap**: Dynamic background colors based on night-by-night room availability.
+- **Strict Date Logic**: Correctly handles inclusive check-in and exclusive check-out dates.
+- **Drag-to-Select**: Native implementation of date range selection (forward and backward).
+- **Booking Detail Panel**: Instant visibility into bookings overlapping the selected range.
+- **Real-time Analytics**: Summary of revenue and occupancy for the current view.
+- **Dynamic Filtering**: Filter by Room Type, Status, or Booking Source.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## 📄 Documentation
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+- Please see [NOTES.md](./NOTES.md) for a detailed breakdown of engineering decisions, trade-offs, and feature justifications.

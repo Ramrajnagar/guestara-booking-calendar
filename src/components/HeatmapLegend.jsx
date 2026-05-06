@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const HeatmapLegend: React.FC = () => {
+export const HeatmapLegend = () => {
   return (
     <div className="heatmap-legend">
       <span className="legend-title">Occupancy:</span>

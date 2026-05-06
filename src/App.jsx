@@ -1,5 +1,4 @@
-import { useState, useEffect, useMemo } from 'react';
-import type { Booking, DateRange, FilterState } from './types';
+import React, { useState, useEffect, useMemo } from 'react';
 import { Navbar } from './components/Navbar';
 import { CalendarGrid } from './components/CalendarGrid';
 import { BookingPanel } from './components/BookingPanel';
@@ -10,15 +9,15 @@ import { parseISO } from 'date-fns';
 import './App.css';
 
 function App() {
-  const [allBookings, setAllBookings] = useState<Booking[]>([]);
+  const [allBookings, setAllBookings] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
+  const [error, setError] = useState(null);
   
   const [currentMonth, setCurrentMonth] = useState(new Date(2026, 0, 1)); 
-  const [selectedRange, setSelectedRange] = useState<DateRange>({ start: null, end: null });
+  const [selectedRange, setSelectedRange] = useState({ start: null, end: null });
   const [isDragging, setIsDragging] = useState(false);
   
-  const [filters, setFilters] = useState<FilterState>({
+  const [filters, setFilters] = useState({
     roomType: '',
     status: '',
     source: ''
@@ -36,7 +35,7 @@ function App() {
       } catch (err) {
         setError(err instanceof Error ? err.message : 'An error occurred');
       } finally {
-        setTimeout(() => setLoading(false), 800); // Small delay for "wow" effect
+        setTimeout(() => setLoading(false), 800);
       }
     };
     fetchData();
@@ -52,19 +51,19 @@ function App() {
   const rangeBookings = useMemo(() => {
     if (!selectedRange.start) return [];
     const dates = getDatesInRange(selectedRange.start, selectedRange.end || selectedRange.start);
-    const unique = new Map<string, Booking>();
+    const unique = new Map();
     dates.forEach(d => {
       getBookingsForDate(parseISO(d), filteredBookings).forEach(b => unique.set(b.id, b));
     });
     return Array.from(unique.values());
   }, [selectedRange, filteredBookings]);
 
-  const handleMouseDown = (dateStr: string) => {
+  const handleMouseDown = (dateStr) => {
     setIsDragging(true);
     setSelectedRange({ start: dateStr, end: dateStr });
   };
 
-  const handleMouseEnter = (dateStr: string) => {
+  const handleMouseEnter = (dateStr) => {
     if (isDragging) {
       setSelectedRange(prev => ({ ...prev, end: dateStr }));
     }

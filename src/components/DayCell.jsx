@@ -1,17 +1,7 @@
 import React from 'react';
 import { format, isSameMonth, isToday } from 'date-fns';
 
-interface DayCellProps {
-  date: Date;
-  currentMonth: Date;
-  occupancyRate: number;
-  isSelected: boolean;
-  onMouseDown: (dateStr: string) => void;
-  onMouseEnter: (dateStr: string) => void;
-  onMouseUp: () => void;
-}
-
-export const DayCell: React.FC<DayCellProps> = ({
+export const DayCell = ({
   date,
   currentMonth,
   occupancyRate,
@@ -24,7 +14,6 @@ export const DayCell: React.FC<DayCellProps> = ({
   const isCurrentMonth = isSameMonth(date, currentMonth);
   const isCurrentDay = isToday(date);
 
-  // Determine heatmap color based on occupancy
   let bgClass = 'bg-white';
   if (occupancyRate > 0) {
     if (occupancyRate <= 25) bgClass = 'occupancy-low';
@@ -41,7 +30,7 @@ export const DayCell: React.FC<DayCellProps> = ({
       onMouseUp={onMouseUp}
     >
       <span className="day-number">{format(date, 'd')}</span>
-      {occupancyRate > 0 && (
+      {occupancyRate > 0 && isCurrentMonth && (
         <span className="occupancy-label">{Math.round(occupancyRate)}%</span>
       )}
     </div>
