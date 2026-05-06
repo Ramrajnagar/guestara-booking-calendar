@@ -2,7 +2,7 @@
 
 A high-performance, single-page React application that visualizes hotel occupancy through an interactive heatmap calendar. Built for the Guestara Frontend Intern Assignment.
 
-## 🚀 Getting Started
+##  Getting Started
 
 1.  **Install Dependencies**:
     ```bash
@@ -19,7 +19,7 @@ A high-performance, single-page React application that visualizes hotel occupanc
     npm run build
     ```
 
-## 🛠️ Tech Stack
+##  Tech Stack
 
 - **React**: Foundation for the UI.
 - **Vite**: Ultra-fast build tool.
@@ -27,7 +27,7 @@ A high-performance, single-page React application that visualizes hotel occupanc
 - **Lucide React**: For clean, modern iconography.
 - **Vanilla CSS**: Custom design system with a focus on premium aesthetics.
 
-## 📋 Core Features
+##  Core Features
 
 - **Occupancy Heatmap**: Dynamic background colors based on night-by-night room availability.
 - **Strict Date Logic**: Correctly handles inclusive check-in and exclusive check-out dates.
@@ -36,6 +36,6 @@ A high-performance, single-page React application that visualizes hotel occupanc
 - **Real-time Analytics**: Summary of revenue and occupancy for the current view.
 - **Dynamic Filtering**: Filter by Room Type, Status, or Booking Source.
 
-## 📄 Documentation
+##  Documentation
 
 - Please see [NOTES.md](./NOTES.md) for a detailed breakdown of engineering decisions, trade-offs, and feature justifications.
