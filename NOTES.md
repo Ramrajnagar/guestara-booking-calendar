@@ -1,6 +1,6 @@
 # Engineering Notes - Guestara Assignment
 
-## 🎯 Open Scope Features
+## Open Scope Features
 
 I implemented two high-impact features beyond the core requirements:
 
@@ -12,7 +12,7 @@ I implemented two high-impact features beyond the core requirements:
     - **Why**: Raw data is only useful if it's actionable. A summary of Revenue and Occupancy Rate gives the user an immediate pulse on business health.
     - **Impact**: Provides month-level and range-level insights (Revenue, Avg. Stay, Most Booked Room).
 
-## 🧠 Engineering Decisions & Trade-offs
+##  Engineering Decisions & Trade-offs
 
 ### 1. The "Checkout Day" Logic
 The brief emphasizes that a guest occupying Feb 10-13 is only in the room for the nights of 10, 11, and 12. 
@@ -29,7 +29,7 @@ I avoided Tailwind or UI libraries in favor of Vanilla CSS.
 - **Why**: To showcase my ability to build a custom, premium design system from scratch.
 - **Benefit**: The "Glassmorphism" navbar and custom heatmap gradients feel unique and integrated, not generic.
 
-## 🕰️ Future Improvements (With More Time)
+##  Future Improvements (With More Time)
 
 1.  **Persistence**: I would implement `localStorage` to remember the user's last-viewed month and active filters across page reloads.
 2.  **Keyboard Navigation**: Implementing the "Arrow Key" navigation mentioned in the brief would significantly improve accessibility (A11y).
